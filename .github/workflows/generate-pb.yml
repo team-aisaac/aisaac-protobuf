@@ -1,7 +1,8 @@
 name: generate-pb
 on: [push]
 jobs:
-  generate-cpp-files:
+  job_1:
+    name: generate-cpp-files
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,7 +17,9 @@ jobs:
         with:
           name: cpp-public
           path: ./protos/
-   generate-nanopb-files:
+   job_2:
+     name: generate-nanopb-files
+     needs: job_1
      runs-on: ubuntu-lates
      steps:
        - uses: actions/checkout@v3
