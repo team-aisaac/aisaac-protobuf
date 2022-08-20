@@ -19,7 +19,7 @@ jobs:
           path: ./protos/
   job_2:
     name: generate-nanopb-files
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
