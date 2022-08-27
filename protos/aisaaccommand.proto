@@ -1,10 +1,64 @@
 syntax = "proto3";
 
+package aisaacpb;
+
+message Position {
+  int32 x = 1;
+  int32 y = 2;
+  int32 theta = 3;
+}
+
+message Velocity {
+  int32 vx = 1;
+  int32 vy = 2;
+  int32 omega = 3;
+}
+
+message Obstacle {
+  int32 x = 1;
+  int32 y = 2;
+  int32 vx = 3;
+  int32 vy = 4;
+}
+
 message Kick {
   int32 sensor_use_type = 1;
   bool kick_type = 2;
   int32 kick_strength = 3;
+  Position ball_waypoint = 4;
+  Position ball_pos = 5;
+  Velocity ball_vel = 6;
 }
+
+message DwaResult {
+  int32 vx = 1;
+  int32 vy = 2;
+  int32 theta = 3;
+  int32 ax = 4;
+  int32 ay = 5;
+}
+
+message SpcCommand {
+  Position current_pos = 1;
+  Position target_pos = 2;
+  Velocity move_vec = 3;
+  repeated Obstacle obstacles = 4;
+  Kick kick = 5;
+}
+
+message RaspiCommand {
+  Position current_pos = 1;
+  Position target_pos = 2;
+  Velocity move_vec = 3;
+  bool is_dwa_valid = 4;
+  DwaResult dwa = 5;
+  Kick kick = 6;
+}
+
+message RobotStatus {
+  Position current_pos = 1;
+  Velocity current_vel = 2;
+} 
 
 message AIsaacCommand {
   int32 robot_command_coordinate_system_type = 1;
