@@ -23,15 +23,15 @@ message Obstacle {
 
 message Kick {
   enum KickType {
-    None = 1;
-    Force = 2;
-    Sensor = 3;
-    XY = 4;
+    None = 0;
+    Force = 1;
+    Sensor = 2;
+    XY = 3;
   }
 
   enum KickMethod {
-    Chip = 1;
-    Straight = 2;
+    Chip = 0;
+    Straight = 1;
   }
 
   KickType sensor_type = 1;
