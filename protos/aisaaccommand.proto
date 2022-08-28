@@ -22,8 +22,20 @@ message Obstacle {
 }
 
 message Kick {
-  int32 sensor_use_type = 1;
-  bool kick_type = 2;
+  enum KickType {
+    None = 1;
+    Force = 2;
+    Sensor = 3;
+    XY = 4;
+  }
+
+  enum KickMethod {
+    Chip = 1;
+    Straight = 2;
+  }
+
+  KickType sensor_type = 1;
+  KickMethod kick_method = 2;
   int32 kick_strength = 3;
   Position ball_waypoint = 4;
   Position ball_pos = 5;
