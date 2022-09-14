@@ -50,14 +50,17 @@ message DwaResult {
   int32 ay = 5;
 }
 
+// StrategyPC -> RasPi
 message SpcCommand {
   Position current_pos = 1;
   Position target_pos = 2;
   Velocity move_vec = 3;
   repeated Obstacle obstacles = 4;
   Kick kick = 5;
+  bool prohidited_zone_ignore = 6;
 }
 
+// RasPi -> STM32
 message RaspiCommand {
   Position current_pos = 1;
   Position target_pos = 2;
