@@ -66,7 +66,7 @@ message RaspiCommand {
   Velocity move_vec = 2;
   Position target_pos = 3;
   bool dwa_result_valid = 4;
-  bool path_enable = 5
+  bool path_enable = 5;
   DwaResult dwa_result = 6;
   Kick kick = 7;
 }
