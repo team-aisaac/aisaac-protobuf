@@ -57,6 +57,7 @@ enum RobotCommandCoordinateSystemType {
 }
 
 // StrategyPC -> RasPi
+// RasPi -> STM32
 message SpcCommand {
   Position current_pos = 1;
   Velocity move_vec = 2;
@@ -68,17 +69,13 @@ message SpcCommand {
   bool vision_data_valid = 8;
 }
 
+// DWA Result
 // RasPi -> STM32
 message RaspiCommand {
-  Position current_pos = 1;
-  Velocity move_vec = 2;
-  Position target_pos = 3;
-  bool dwa_result_valid = 4;
-  bool path_enable = 5;
-  DwaResult dwa_result = 6;
-  Kick kick = 7;
-  RobotCommandCoordinateSystemType robot_command_coordinate_system_type = 8;
-  bool vision_data_valid = 9;
+  Position target_pos = 1;
+  bool dwa_result_valid = 2;
+  bool path_enable = 3;
+  DwaResult dwa_result = 4;
 }
 
 message RobotStatus {
