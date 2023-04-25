@@ -51,7 +51,7 @@ message Kick {
 
 message Dribble {
   double dribble_power = 1; // double
-  bool drrible_state = 2; // Dribble flag
+  bool dribble_state = 2; // Dribble flag
   bool dribbler_active = 3; // Force rotate drribler
   Position dribble_goal = 4;
   int32 dribble_complete_distance = 5;
