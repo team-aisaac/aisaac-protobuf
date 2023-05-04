@@ -73,6 +73,7 @@ message SpcCommand {
   Position middle_goal_pose = 5;
   Dribble dribble = 6;
   Kick kick = 7;
+  bool halt_flag = 8;
 }
 
 // DWA Result
