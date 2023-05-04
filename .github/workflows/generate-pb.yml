@@ -3,7 +3,7 @@ on: [push]
 jobs:
   job_1:
     name: generate-cpp-files
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: install libraries
