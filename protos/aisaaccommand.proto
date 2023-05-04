@@ -86,5 +86,5 @@ message DWAResult {
 message VisionData {
   Position own_machine_position = 1;
   Position ball_position = 2;
-  repeated Obstacle obstacles = 3 [(nanopb).max_count = 21];
+  repeated Obstacle obstacles = 3;
 }
