@@ -47,6 +47,7 @@ message Kick {
   bool free_kick_flag = 5;
   Position ball_goal = 6;
   int32 ball_target_allowable_error = 7;
+  KickType kick_type = 8;
 }
 
 message Dribble {
