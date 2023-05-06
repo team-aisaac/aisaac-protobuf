@@ -2,90 +2,151 @@ syntax = "proto3";
 
 package aisaacpb;
 
-message Position {
-  int32 x = 1;
-  int32 y = 2;
-  int32 theta = 3;
-}
-
-message Velocity {
-  int32 vx = 1;
-  int32 vy = 2;
-  int32 omega = 3;
-}
-
-message Acceleration {
-  int32 ax = 1;
-  int32 ay = 2;
-}
-
-message Obstacle {
-  int32 x = 1;
-  int32 y = 2;
-  int32 theta = 3;
-  int32 vx = 4;
-  int32 vy = 5;
-}
-
-message Kick {
-  enum KickType {
-    None = 0;
-    Force = 1;
-    Sensor = 2;
-    XY = 3;
-  }
-
-  enum KickMethod {
-    Chip = 0;
-    Straight = 1;
-  }
-
-  bool ball_kick_state = 1;
-  bool ball_kick = 2;
-  int32 kick_power = 3;
-  bool ball_kick_active = 4;
-  bool free_kick_flag = 5;
-  Position ball_goal = 6;
-  int32 ball_target_allowable_error = 7;
-  KickType kick_type = 8;
-}
-
-message Dribble {
-  double dribble_power = 1; // double
-  bool dribble_state = 2; // Dribble flag
-  bool dribbler_active = 3; // Force rotate drribler
-  Position dribble_goal = 4;
-  int32 dribble_complete_distance = 5;
-}
-
-enum RobotCommandCoordinateSystemType {
-  Vector = 0;
-  Coordinate = 1;
-  Relax = 2;
-}
-
 // StrategyPC -> RasPi
 // RasPi -> STM32
 message SpcCommand {
-  RobotCommandCoordinateSystemType robot_command_type = 1;
-  Position goal_pose = 2;
-  bool prohibited_zone_ignore = 3;
-  bool middle_target_flag = 4;
-  Position middle_goal_pose = 5;
-  Dribble dribble = 6;
-  Kick kick = 7;
-  bool halt_flag = 8;
+  int32 robot_command_type = 1; // Vector, Coordinate, Relax
+  int32 goal_pose_x = 2;
+  int32 goal_pose_y = 3;
+  int32 goal_pose_theta = 4;
+  bool middle_target_flag = 5;
+  int32 middle_goal_pose_x = 6;
+  int32 middle_goal_pose_y = 7;
+  int32 middle_goal_pose_theta = 8;
+  int32 dribble_power = 9;
+  bool dribble_state = 10;
+  bool dribbler_active = 11;
+  int32 kick_power = 12
+  bool ball_kick_state = 13;
+  bool ball_kick = 14
+  bool ball_kick_active = 15;
+  bool free_kick_flag = 16;
+  int32 ball_goal_x = 17;
+  int32 ball_goal_y = 18;
+  int32 ball_target_allowable_error = 19;
+  int32 dribble_goal_x = 20;
+  int32 dribble_goal_y = 21;
+  int32 dribble_complete_distance = 22;
+  int32 kick_type = 23;
+  bool halt_flag = 24;
 }
 
 // DWA Result
 // RasPi -> STM32
 message DWAResult {
-  Position dwa_position = 1;
+  int32 dwa_position_x = 1;
+  int32 dwa_position_y = 2;
+  int32 dwa_position_theta = 3;
 }
 
 // Vision Data
 message VisionData {
-  Position own_machine_position = 1;
-  Position ball_position = 2;
-  repeated Obstacle obstacles = 3;
+  int32 current_pose_x = 1;
+  int32 current_pose_y = 2;
+  int32 current_pose_theta = 3;
+  int32 current_pose_v_x = 4;
+  int32 current_pose_v_y = 5;
+  int32 ball_position_x = 6;
+  int32 ball_position_y = 7;
+  int32 number_of_obstacles = 8;
+  int32 obstacle0_x = 9;
+  int32 obstacle0_y = 10;
+  int32 obstacle0_theta = 11;
+  int32 obstacle0_v_x = 12;
+  int32 obstacle0_v_y = 13;
+  int32 obstacle1_x = 14;
+  int32 obstacle1_y = 15;
+  int32 obstacle1_theta = 16;
+  int32 obstacle1_v_x = 17;
+  int32 obstacle1_v_y = 18;
+  int32 obstacle2_x = 19;
+  int32 obstacle2_y = 20;
+  int32 obstacle2_theta = 21;
+  int32 obstacle2_v_x = 22;
+  int32 obstacle2_v_y = 23;
+  int32 obstacle3_x = 24;
+  int32 obstacle3_y = 25;
+  int32 obstacle3_theta = 26;
+  int32 obstacle3_v_x = 27;
+  int32 obstacle3_v_y = 28;
+  int32 obstacle4_x = 29;
+  int32 obstacle4_y = 30;
+  int32 obstacle4_theta = 31;
+  int32 obstacle4_v_x = 32;
+  int32 obstacle4_v_y = 33;
+  int32 obstacle5_x = 34;
+  int32 obstacle5_y = 35;
+  int32 obstacle5_theta = 36;
+  int32 obstacle5_v_x = 37;
+  int32 obstacle5_v_y = 38;
+  int32 obstacle6_x = 39;
+  int32 obstacle6_y = 40;
+  int32 obstacle6_theta = 41;
+  int32 obstacle6_v_x = 42;
+  int32 obstacle6_v_y = 43;
+  int32 obstacle7_x = 44;
+  int32 obstacle7_y = 45;
+  int32 obstacle7_theta = 46;
+  int32 obstacle7_v_x = 47;
+  int32 obstacle7_v_y = 48;
+  int32 obstacle8_x = 49;
+  int32 obstacle8_y = 50;
+  int32 obstacle8_theta = 51;
+  int32 obstacle8_v_x = 52;
+  int32 obstacle8_v_y = 53;
+  int32 obstacle9_x = 54;
+  int32 obstacle9_y = 55;
+  int32 obstacle9_theta = 56;
+  int32 obstacle9_v_x = 57;
+  int32 obstacle9_v_y = 58;
+  int32 obstacle10_x = 59;
+  int32 obstacle10_y = 60;
+  int32 obstacle10_theta = 61;
+  int32 obstacle10_v_x = 62;
+  int32 obstacle10_v_y = 63;
+  int32 obstacle11_x = 64;
+  int32 obstacle11_y = 65;
+  int32 obstacle11_theta = 66;
+  int32 obstacle11_v_x = 67;
+  int32 obstacle11_v_y = 68;
+  int32 obstacle12_x = 69;
+  int32 obstacle12_y = 70;
+  int32 obstacle12_theta = 71;
+  int32 obstacle12_v_x = 72;
+  int32 obstacle12_v_y = 73;
+  int32 obstacle13_x = 74;
+  int32 obstacle13_y = 75;
+  int32 obstacle13_theta = 76;
+  int32 obstacle13_v_x = 77;
+  int32 obstacle13_v_y = 78;
+  int32 obstacle14_x = 79;
+  int32 obstacle14_y = 80;
+  int32 obstacle15_theta = 81;
+  int32 obstacle15_v_x = 82;
+  int32 obstacle15_v_y = 83;
+  int32 obstacle16_x = 84;
+  int32 obstacle16_y = 85;
+  int32 obstacle16_theta = 86;
+  int32 obstacle16_v_x = 87;
+  int32 obstacle16_v_y = 88;
+  int32 obstacle17_x = 89;
+  int32 obstacle17_y = 90;
+  int32 obstacle17_theta = 91;
+  int32 obstacle17_v_x = 92;
+  int32 obstacle17_v_y = 93;
+  int32 obstacle18_x = 94;
+  int32 obstacle18_y = 95;
+  int32 obstacle18_theta = 96;
+  int32 obstacle18_v_x = 97;
+  int32 obstacle18_v_y = 98;
+  int32 obstacle19_x = 99;
+  int32 obstacle19_y = 100;
+  int32 obstacle19_theta = 111;
+  int32 obstacle19_v_x = 112;
+  int32 obstacle19_v_y = 113;
+  int32 obstacle20_x = 114;
+  int32 obstacle20_y = 115;
+  int32 obstacle20_theta = 116;
+  int32 obstacle20_v_x = 117;
+  int32 obstacle20_v_y = 118;
 }
